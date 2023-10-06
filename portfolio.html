@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>ポートフォリオ</title>
+</head>
+<body>
+    <header class="header">
+        <h1>私のポートフォリオ</h1>
+    </header>
+
+    <section class="section_main">
+        <h2 class="section_ttl">プロジェクト一覧</h2>
+        <ul class="section_box">
+            {% for project in portfolio %}
+                <li class="section_list">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <p><a href="{{ project.url }}" target="_blank">プロジェクトの詳細</a></p>
+                    <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}の画像">
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <footer class="footer">
+        &copy; 2023 My Portfolio
+    </footer>
+</body>
+</html>
